@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head> 
+   
+      <title>Payment</title>
+      
+      <link rel="stylesheet" href="mystylepay.css">
+   </head>
+
+<script>
+    var queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+var queries = queryString.split("&");
+    for (var i = 0; i < queries.length; i++)
+{
+  document.write(queries[i] + "<br>");
+}
+
+function terms_changed(termsCheckBox)
+{   
+    if(termsCheckBox.checked)
+   {       
+        document.getElementById("submit_button").disabled = false;
+    } else{
+        document.getElementById("submit_button").disabled = true;
+    }
+    
+}
+</script>
+<script>
+       function myfunction(){
+           var queryString1 = new Array();
+
+           var str='  ';
+var queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+var queries = queryString.split("&");
+           queryString1="?"+queries[0]
+for (var i = 1; i < queries.length; i++)
+{
+  document.write(queries[i] + "<br>");
+  
+  queryString1=queryString1+"&"+queries[i]
+}  
+
+window.location.href = "qr.html" + queryString1;
+    }
+
+    </script>
+
+
+   <body>
+<br>
+      <form style="font-size:25px">
+      <label for="pay"> <b>Choose Payment Method</b> </label><br>
+<input type="radio" id="1" name="pay" value="1" checked>
+<label for="1">Paypal</label><br>
+<input type="radio" id="2" name="pay" value="2">
+<label for="2">EXIMBAY</label><br>
+<input type="radio" id="3" name="pay" value="3">
+<label for="3">Paytm</label><br>
+<input type="radio" id="4" name="pay" value="4">
+<label for="4">Debit/Credit card</label><br>
+      </form>
+<br>
+       <div>
+<ol type="1" style="font-size:15px">
+      <li><i>Viewers 14 years of age and under on the day of concert must have the consent of their legal guardian.If you fail to present all the necessary paper work, entry will be denied and the ticket holder and legal guardian will be fully responsible for all issues that may arise from this issue.</i></li>
+      <li><i>You will be asked to check in via QR code. If you fail to show QR code you may be denied from entering the concert menu. </i></li>
+    <li><i>The identity of every viewer will be verified on the site to prevent ticket scalping and illegal transfer, so please bring a valid form or identification.</i></li>
+<li><i>Food and beverages with the exception of water cannot be brought into the concert venue. Hazardous materials such as bottles, fireworks and lazor pointers as well as companion animals, flowers and ballons cannot be brought into the venue.</i></li>
+<li><i>All activities that infringe upon copywrite are prohibited, including taking photographs or video, making audio recordings, and live streaming audio or video during any part of the performance. All devices capable of taking audio or video recordings, with the exception of the mobile phone, are strictly prohibited from being brought into the venue. If any of the activities above are discovered(including the use of your mobile phone) you will be asked to leave the venue after erasing all recordings. We ask for your cooperation.</i></li>
+      </ol>
+<p id="qrphp">
+</div>
+<form >
+    <div>
+        <input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" />
+        <label for="terms_and_conditions">I have read and accept the terms and condtions and agree to make a booking.</label>
+        
+<br>
+       <input type="submit" id="submit_button" disabled value="View QR Code" onclick ="myfunction()">
+    </div>        
+</form>
+   </body>
+      
+
+</html> 

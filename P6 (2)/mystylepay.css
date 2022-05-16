@@ -1,0 +1,10 @@
+body
+{
+            background-image: url('picture3.jpg');
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-size: cover;
+             color:white;
+             text-align:left;
+             font-size:20px;
+}

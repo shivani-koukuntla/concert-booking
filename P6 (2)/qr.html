@@ -1,0 +1,46 @@
+<!doctype html>
+<head> 
+<title> Concert Ticket </title>
+
+</head>
+	<body style="text-align:center">
+
+<TD><a href="logout.php" style="float:right;">LOGOUT</a></TD><br><br>
+<h2>Your booking has been successfully confirmed</h2>
+<h4>Your requested to show this QR code in the venue. If not you will be denied from entering.</h4>
+        <br/>
+        <p id="qr-result"></p>
+        <canvas id="qr-code"></canvas>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+		<script>
+                  {
+			var qr;
+			(function() {
+                    qr = new QRious({
+                    element: document.getElementById('qr-code'),
+                    size: 200,
+                    
+                });
+            })();  
+            var str='';
+            var queryString = decodeURIComponent(window.location.search);
+         queryString = queryString.substring(1);
+      var queries = queryString.split("&");
+                for(var i=1;i<queries.length;i++)
+                {
+                    str=str+queries[i]
+                }
+      var qrtext =str;
+                
+                qr.set({
+                    foreground: 'black',
+                    size: 200,
+                    value: qrtext
+                });
+            }
+</script>
+
+
+</body>
+</html>
